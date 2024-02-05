@@ -1,0 +1,118 @@
+---
+import InfoCard from '../components/InfoCard.astro';
+import Layout from '../layouts/Layout.astro';
+import splitStringByLineEnd from "../utils/splitStringByNewLine"
+
+const fengShui = `El asesoramiento consiste en un análisis de los aspectos energéticos del espacio que habitas y su influencia en  tu bienestar, con datos ambientales y personales en cada caso.
+Puede ser tu casa, oficina, negocio o empresa. El asesoramiento se realiza presencial teniendo en cuenta que estoy en Buenos Aires y también de forma on line.
+El análisis y la intervención es sobre (puede variar dependiendo el caso):
+- Localización de geopatías y neutralización mediante dispositivos cuánticos
+- Ubicación estratégica de los objetos dentro del espacio
+- Orientaciones favorables para cada persona (trabajo, comer, dormir)
+- En cada área: colores propicios, diagnóstico y correcciones, colocación de potenciadores energéticos, ubicación de fuentes de agua (interior y exterior), uso de la iluminación, estudio de los flujos energéticos.
+- Curas en los ambientes que presentan desequilibrios energéticos con talismanes, geometrías sagradas, cristales, cuadros, etc. 
+- Activación de las Aspiraciones Vitales
+- Exteriores: Protecciones, iluminación, diseño o curas en jardines y balcones
+- Tipos de plantas y ubicación
+- Protección del campo áurico de la casa
+Cada caso es único e irrepetible así es que no dudes en consultar si tenes interés en un asesoramiento y algo de lo que te interesa no está aquí.
+`
+
+const biodecodificacion = `La Biodecodificación Ambiental es una mirada minuciosa de cada rincón de nuestro hogar. La casa representa nuestro inconsciente y toda nuestra historia personal y ancestral. 
+Por lo tanto, al cambiar o retirar lo que ya cumplió su ciclo estamos haciendo algo más que una limpieza, estamos tomando consciencia de eso que nos bloquea, que nos limita, que nos hace repetir patrones, de las creencias y de muchas cosas más.
+Al mismo tiempo nos comprometemos con nosotr@s mism@s a ese cambio y esa mejora en nuestra Vida de una manera responsable y adulta.
+`
+const reprogramacion = `Reprogramación  Cuántica es una maravillosa y efectiva técnica de liberación de emociones discordantes, bloqueos, fidelidades, programantes, lazos energéticos, formatos heredados, creencias limitantes, y muchísimo más. 
+Nuestro cuerpo contiene esa información y cuando está lista y preparada esa información para liberarse la pone a disposición. Mediante el uso del péndulo y gráficos voy guiándote para que te liberes de lo que te limita a lograr tus objetivos y una Vida plena.
+`
+
+const sanacion = `texto`
+
+const data = [
+    {
+        title: "Feng Shui",
+        textArray: splitStringByLineEnd(fengShui),
+        image: {
+            src: "/servicios-feng-shui.jpg",
+            alt: "Green themed furnature well organized",
+            sizes: {
+                height: "300px",
+                width: "450px"
+            }
+        }
+    },
+    {
+        title: "Biodecodificación Ambiental",
+        textArray: splitStringByLineEnd(biodecodificacion),
+        image: {
+            src: "/servicios-biodecodificacion.jpg",
+            alt: "Wall with a picture of Kwan Yin",
+            sizes: {
+                height: "400px",
+                width: "350px"
+            }
+        }
+    },
+    {
+        title: "Reprogramación Cuántica",
+        textArray: splitStringByLineEnd(reprogramacion),
+        image: {
+            src: "/servicios-reprogramacion.jpg",
+            alt: "Transparent man on space",
+            sizes: {
+                height: "250px",
+                width: "250px"
+            }
+        }
+    },
+    {
+        title: "Sanación a Distancia",
+        textArray: splitStringByLineEnd(sanacion),
+        image: {
+            src: "/servicios-a-distancia.jpg",
+            alt: "A lot of blue circles on a black background",
+            sizes: {
+                height: "300px",
+                width: "450px"
+            }
+        }
+    }
+]
+
+---
+
+<Layout title="PaoFu | Servicios">
+    <section>
+        {
+            data.map((props) => <InfoCard {...props} />)
+        }
+    </section>
+</Layout>
+
+<style>
+    section{
+        flex: 1;
+        background: linear-gradient(#fef8f4, #fad8c2 15%, #fad8c2 85%, #fef8f4 );
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+    h2 {
+        text-align: center;
+    }
+    article{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-bottom: 5rem;
+        background-color: #fff4f3aa;
+        padding: 1rem;
+        border-radius: .7rem;
+        max-width: 800px;
+    }
+    p{
+        text-align: center;
+        margin: 0;
+    }
+</style>
