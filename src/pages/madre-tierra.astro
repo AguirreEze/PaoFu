@@ -1,0 +1,48 @@
+---
+import InfoCard from '../components/InfoCard.astro';
+import Layout from '../layouts/Layout.astro';
+import splitStringByLineEnd from "../utils/splitStringByNewLine"
+
+const text = `Tenemos la bendita fortuna de estar viviendo en este maravilloso planeta Madre Tierra. La magia y la creatividad que tiene es de profunda admiración. Siempre me conecté y me conecto con la Naturaleza es parte de mi identidad. El aire fresco de la mañana trayendo el canto glorioso de los pájaros y aroma verde nombrando vegetación. Las sensaciones de apoyar los pies en múltiples texturas es única cada vez. Temperaturas, sabores, sensaciones, olores y mil más todo lo que nos hace seres humanos nos lo brinda Ella. Hogar, alimento, nutrición, resguardo, cambio, transformación, todo. 
+Como humanidad estamos atravesando un momento sin precedentes: la Madre Tierra ya cambió su vibración a una frecuencia más elevada, la oportunidad de acompañar este cambio de frecuencia es personal y la tenemos tod@s. No hay “charter”  y tampoco nadie va a hacer esa tarea por vos ni por mi. Sí, nos podemos ayudar desde la fraternidad, comunidad y respeto por todo ser vivo y por todo. 
+El cambio es interno y sin varita mágica. La magia es una búsqueda personal interna de “aligerar el equipaje” y que tu Luz brille. 
+Se trata de despertar la conciencia de lo que somos y quienes somos. De ser vedader@s con nosotr@s mism@s y con los demás. 
+Conecta con la Naturaleza en el lugar en donde estés si querés unirte a esta etapa de cambio de la humanidad. Las señales te van guiando. Medita. Mira en tu interior. Busca la paz en todo. Evita el conflicto sin tener que soportar nada.
+Siempre hay guía para quien busca su propia verdad y quiere aprender de sí mism@.
+Gracias Infinitas Madre Tierra.
+`
+const textArray = splitStringByLineEnd(text)
+---
+
+
+
+<Layout title="PaoFu | Madre Tierra">
+    <section>
+        <InfoCard 
+            title='Madre Tierra' 
+            textArray={textArray} 
+            image={{
+                src: "/madre-tierra.jpg",
+                alt: "Grassy field with a sunset on de background",
+                sizes: {
+                    height: "250px",
+                    width: "400px"
+                }
+            }}
+        />
+    </section>
+</Layout>
+
+<style>
+    section{
+        flex: 1;
+        background-image: url("/madre-tierra-bg.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+</style>
