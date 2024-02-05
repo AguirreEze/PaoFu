@@ -1,0 +1,44 @@
+---
+import InfoCard from '../components/InfoCard.astro';
+import Layout from '../layouts/Layout.astro';
+import splitStringByLineEnd from "../utils/splitStringByNewLine"
+
+const text = `Buen día, mi nombre es Paola Usseglio. Hace 30 años que trabajo brindando servicios para el bienestar y la salud, hoy en día soy terapeuta holística y doy asesoramiento en Feng Shui. En mis primeros años trabajé a domicilio, entrar a cada casa me hacia reflexionar mucho sobre la casa, la decoración, la energía habitante y las personas que allí vivían. A veces las casas me hablaban, sí como lo leíste, y no sé explicarlo más, el resultado era una impronta clara y fuerte. Al charlar con la persona que contrató mis servicios se hacía claro y evidente lo que la casa estaba expresando. 
+Siempre estoy formándome y ampliando mis conocimientos, así es como luego abrí consultorio para terapias complementarias como terapia floral, reiki, astrología, aromaterapia, terapia con cristales, terapias corporales varias, biomagnetismo y medicina china, hasta llegar al Feng Shui, donde me enamoré completamente de este maravilloso proceso de sanación evolutivo. Sí, desde tu casa podes sanar. La casa representa nuestro subconsciente y todo lo que sucede allí está en nuestra vida y es posible ir ordenando, eliminar límites para lograr nuestros objetivos viviendo una Vida más plena.
+Antes te escribí sobre Madre Tierra, nuestra casa, nuestro cuerpo y el planeta hablan de los mismo, de una expresión física de algo que existe más allá del físico. 
+Si te interesa la experiencia podes escribirme, más abajo te dejo los contactos y te cuento algo más sobre el Feng Shui.
+Gracias por tu tiempo y que tengas una hermosa Vida!
+Paola 
+`
+
+const textArray = splitStringByLineEnd(text)
+
+---
+
+<Layout title="PaoFu | Sobre Mi">
+    <section>
+        <InfoCard 
+            title='Sobre mi'
+            textArray={textArray}
+            image={{
+                src: "/sobre-mi.jpg",
+                alt: "PaoFu in front of a flower garden with pine trees on the background",
+                sizes: {
+                    height: "300px",
+                    width: "500px"
+                }
+            }}
+        />
+    </section>
+</Layout>
+
+<style>
+    section{
+        flex: 1;
+        background: linear-gradient(#fef8f4, #fad8c2 15%, #fad8c2 85%, #fef8f4 );
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+</style>
