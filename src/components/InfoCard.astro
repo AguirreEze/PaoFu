@@ -1,0 +1,53 @@
+---
+interface Props {
+	title: string;
+    image?: {
+        src: string,
+        alt: string,
+        sizes: {
+            height: string,
+            width: string
+        }
+    };
+    textArray: string[]
+}
+
+const { title, textArray, image } = Astro.props;
+---
+
+<article>
+    <h2>{title}</h2>
+    {
+        image && <img src={image.src} alt={image.alt} />
+    }
+    {
+        textArray.map((string)=> <p>{string}</p>)
+    }
+</article>
+
+
+<style define:vars={{ height: image?.sizes.height || "", width: image?.sizes.width || "" }}>
+    article{
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        margin: 4rem 0;
+        background-color: #fff4f3aa;
+        padding: 1.5rem;
+        border-radius: .7rem;
+        max-width: 800px;
+    }
+    p{
+        text-align: center;
+        margin: 0;
+    }
+    h2 {
+        text-align: center;
+        margin: 0;
+    }
+    img {
+        align-self: center;
+        width: var(--width);
+        height: var(--height);
+    }
+</style>
