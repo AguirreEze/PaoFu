@@ -6,7 +6,9 @@ interface Props {
         alt: string,
         sizes: {
             height: string,
-            width: string
+            width: string,
+            heightMobile: string,
+            widthMobile: string,
         }
     };
     textArray: string[]
@@ -26,7 +28,7 @@ const { title, textArray, image } = Astro.props;
 </article>
 
 
-<style define:vars={{ height: image?.sizes.height || "", width: image?.sizes.width || "" }}>
+<style define:vars={{ height: image?.sizes.height || "", width: image?.sizes.width || "", heightMobile: image?.sizes.heightMobile || "", widthMobile: image?.sizes.widthMobile || ""  }}>
     article{
         display: flex;
         flex-direction: column;
@@ -49,5 +51,12 @@ const { title, textArray, image } = Astro.props;
         align-self: center;
         width: var(--width);
         height: var(--height);
+    }
+
+	@media (max-width: 550px) {
+            img {
+            width: var(--widthMobile);
+            height: var(--heightMobile);
+        }
     }
 </style>
