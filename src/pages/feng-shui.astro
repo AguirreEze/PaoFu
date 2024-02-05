@@ -1,0 +1,44 @@
+---
+import InfoCard from '../components/InfoCard.astro';
+import Layout from '../layouts/Layout.astro';
+import splitStringByLineEnd from "../utils/splitStringByNewLine"
+
+const text = `En oriente y en casi toda la sabiduría ancestral el día a día y la Vida misma se lleva de acuerdo a los ciclos de la Naturaleza. Aquí en los países occidentales “se nos olvidó” que somos parte de esa Naturaleza y gracias al gran intercambio cultural estamos refrescando esa memoria y volviendo al origen. 
+Feng Shui significa aire y viento, dos elementos que fluyen y se adaptan tomando la forma de lo que lo contiene. En China el Feng Shui es una técnica milenaria nacida de la necesidad de buena salud, prosperidad, alegría y expansión. 
+Hoy en día hay muchísima información al respecto, sin embargo a veces necesitamos un estudio y un análisis profundo para encontrar las curas y aplicar los elementos de manera estratégica para que la energía de nuestra casa vibre positiva y saludable.
+Todo es energía. Hasta las ciencias duras están reconociendo esta verdad. 
+Nada permanece estático. Todo fluye. Otro principio que ya no se oculta más.
+Nuestra casa vive. Tiene energía. El Feng Shui es una manera de vivir en conexión con nuestro entorno primero que es nuestro hogar. Dale lo mejor, date a ti lo mejor.
+`
+
+const textArray = splitStringByLineEnd(text)
+
+---
+
+<Layout title="PaoFu | Feng Shui">
+    <section>
+        <InfoCard 
+            title='Feng Shui'
+            textArray={textArray}
+            image={{
+                src: "/feng-shui.jpg",
+                alt: "Well organized Livingroom with a sofa on the middle and plants on the back",
+                sizes: {
+                    height: "400px",
+                    width: "350px"
+                }
+            }}
+        />
+    </section>
+</Layout>
+
+<style>
+    section{
+        flex: 1;
+        background: linear-gradient(#fef8f4, #fad8c2 15%, #fad8c2 85%, #fef8f4 );
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+</style>
