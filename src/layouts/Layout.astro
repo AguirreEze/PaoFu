@@ -70,7 +70,10 @@ const { title } = Astro.props;
 				<h1>Pao Fu Feng Shui</h1>
 				<span>El Arte de las Buenas Vibras</span>
 			</header>
-			<nav>
+			<nav class="slider" data-navbar>
+				<button data-show-nav>
+					<div>{">"}</div>
+				</button>
 				<a href="/">Inicio</a>
 				<a href="/madre-tierra">Madre Tierra</a>
 				<a href="/feng-shui">Feng Shui</a>
@@ -82,6 +85,13 @@ const { title } = Astro.props;
 		</main>
 	</body>
 </html>
+
+<script>
+	const button = document.querySelector('[data-show-nav]');
+	const navbar = document.querySelector('[data-navbar]');
+    
+	button?.addEventListener('click', () => navbar?.classList.toggle("show"));
+  </script>
 
 <style is:global>
 	@font-face {
@@ -170,6 +180,18 @@ const { title } = Astro.props;
 		background-color: #aaa;
 	}
 
+	button {
+		display: none;
+		padding: .5rem;
+		background-color: #fff4f3;
+		border: 1px solid #aaa;
+	}
+
+	button div{
+		font-size: 18px;
+		transform: rotate(90deg);
+	}
+
 	@media (max-width: 550px) {
 		header{
 			display: flex;
@@ -194,6 +216,27 @@ const { title } = Astro.props;
 		}
 		a{
 			padding: .4rem 0;
+		}
+		.slider {
+			overflow: hidden;
+		}
+		button {
+			display: flex;
+			justify-content: center;
+		}
+		.slider {
+			position: sticky;
+			top: 0px;
+			background-color: #fff4f3;
+			flex-wrap: nowrap;
+			max-height: 40px;
+			transition: max-height 0.3s ease-out;
+		}
+		.show {
+			max-height: 320px;
+		}
+		.show button div {
+			transform: rotate(-90deg);
 		}
 
 	}
