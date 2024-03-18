@@ -1,34 +1,57 @@
 ---
-import InfoCard from '../components/InfoCard.astro';
 import Layout from '../layouts/Layout.astro';
-import splitStringByLineEnd from "../utils/splitStringByNewLine"
-
-const text = `Te invito a conocer mi labor y probar este
-Sanador Arte de la Buenas Vibras 
-para transformar tu casa, tu energía y tu Vida
-Pao Fu Feng Shui `
-
-const textArray = splitStringByLineEnd(text)
 ---
 
 <Layout title="Pao Fu Feng Shui">
+    <header>
+        <img src="/Avatar.webp"/>
+        <span>@la.angelada</span>
+        <span>Paola Usseglio</span>
+    </header>
     <section>
-        <InfoCard title='' textArray={textArray}/>
+        <a href="https://laangelada.empretienda.com.ar/sobre-mi">Sobre Mi</a>
+        <a href="https://laangelada.empretienda.com.ar/sesiones">Sesiones</a>
+        <a href="https://laangelada.empretienda.com.ar/feng-shui">Feng Shui</a>
+        <a href="https://laangelada.empretienda.com.ar/arte">Arte</a>
+        <a href="https://laangelada.empretienda.com.ar/madre-tierra">Madre Tierra</a>
+        <a href="https://wa.me/1568529141">Contacto</a>
     </section>
 </Layout>
 
 <style>
 	section{
-        flex: 1;
-        background-image: url("/background.png");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
         display: flex;
         align-items: center;
 		justify-content: center;
         flex-direction: column;
         padding: 0 2rem;
+        gap: 1rem;
 		font-size: 25px;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    a{
+        border: 1px solid #0007;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 3rem;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+    }
+    a:hover{
+        background-color: mistyrose;
+    }
+    header{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        align-items: center;
+        margin: 1rem 0;
     }
 </style>
